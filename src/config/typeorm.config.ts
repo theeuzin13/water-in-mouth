@@ -3,6 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { UserEntity } from 'src/modules/users/entities/user.entity';
 import { ProductEntity } from 'src/modules/products/entities/product.entity';
 import { OrderEntity } from 'src/modules/orders/entities/order.entity';
+import { SaleEntity } from 'src/modules/sales/entities/sale.entity';
 
 export const typeOrmConfig = async (
   configService: ConfigService,
@@ -13,7 +14,7 @@ export const typeOrmConfig = async (
   username: configService.get<string>('POSTGRES_USER'),
   password: configService.get<string>('POSTGRES_PASSWORD'),
   database: configService.get<string>('POSTGRES_DB'),
-  entities: [UserEntity, ProductEntity, OrderEntity],
+  entities: [UserEntity, ProductEntity, OrderEntity, SaleEntity],
   migrations: [__dirname + '/../migrations/**/*{.ts,.js}'],
   synchronize: false,
 });

@@ -2,6 +2,7 @@ import { Controller, Post, Body, Get, Param, Delete, Patch } from '@nestjs/commo
 import { UserService } from './user.service';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { UserRole } from 'src/common/enums/role.enum';
 
 @Controller('users')
 export class UserController {
@@ -10,6 +11,11 @@ export class UserController {
   @Get()
   async findAll() {
     return this.userService.findAll();
+  }
+
+  @Get('employees')
+  findEmployees() {
+    return this.userService.findByRole(UserRole.EMPLOYEE);
   }
 
   @Post()

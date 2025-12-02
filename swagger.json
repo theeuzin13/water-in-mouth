@@ -61,6 +61,20 @@
         ]
       }
     },
+    "/users/employees": {
+      "get": {
+        "operationId": "UserController_findEmployees",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
+    },
     "/users/{id}": {
       "get": {
         "operationId": "UserController_findById",
@@ -407,6 +421,75 @@
           "orders"
         ]
       }
+    },
+    "/sales": {
+      "get": {
+        "operationId": "SalesController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "sales"
+        ]
+      },
+      "post": {
+        "operationId": "SalesController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSaleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "sales"
+        ]
+      }
+    },
+    "/sales/{id}": {
+      "patch": {
+        "operationId": "SalesController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateSaleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "sales"
+        ]
+      }
     }
   },
   "info": {
@@ -541,6 +624,14 @@
             }
           }
         }
+      },
+      "CreateSaleDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "UpdateSaleDto": {
+        "type": "object",
+        "properties": {}
       }
     }
   }

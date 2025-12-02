@@ -5,6 +5,7 @@ import * as bcrypt from 'bcrypt';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UserEntity } from './entities/user.entity';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { UserRole } from 'src/common/enums/role.enum';
 
 @Injectable()
 export class UserService {
@@ -21,6 +22,12 @@ export class UserService {
 
   findById(id: string) {
     return this.repo.findOne({ where: { id } });
+  }
+
+  async findByRole(role: UserRole) {
+    return await this.repo.find({
+      where: { role },
+    });
   }
 
   async findAll() {
