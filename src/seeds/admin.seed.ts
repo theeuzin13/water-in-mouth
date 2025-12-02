@@ -1,8 +1,7 @@
-import { DataSource } from "typeorm";
 import * as bcrypt from "bcrypt";
+import { UserRole } from "src/common/enums/role.enum";
 import { AppDataSource } from "src/config/data-source";
 import { UserEntity } from "src/modules/users/entities/user.entity";
-import { UserRole } from "src/common/enums/role.enum";
 
 export async function createAdminSeed() {
   await AppDataSource.initialize();

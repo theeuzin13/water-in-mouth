@@ -10,4 +10,7 @@ export class ProductEntity {
 
   @Column('decimal')
   price: number;
+
+  @Column()
+  category: string;
 }

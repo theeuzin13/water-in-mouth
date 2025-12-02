@@ -11,4 +11,4 @@
 ### 3. Seeds Manually
 
 > - npm run seed:admin
-> - npm run seed:product
+> - npm run seed:products
