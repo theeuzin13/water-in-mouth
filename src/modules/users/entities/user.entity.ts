@@ -18,4 +18,7 @@ export class UserEntity {
   default: UserRole.EMPLOYEE,
   })
   role: UserRole;
+
+  @Column({ nullable: true })
+  color: string;
 }

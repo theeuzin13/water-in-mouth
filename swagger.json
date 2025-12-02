@@ -97,7 +97,7 @@
           "User"
         ]
       },
-      "patch": {
+      "put": {
         "operationId": "UserController_update",
         "parameters": [
           {
@@ -556,6 +556,11 @@
               "admin",
               "employee"
             ]
+          },
+          "color": {
+            "type": "string",
+            "example": "#3b82f6",
+            "description": "Cor associada ao usuário para personalização."
           }
         },
         "required": [

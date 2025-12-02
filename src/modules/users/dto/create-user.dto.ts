@@ -28,4 +28,13 @@ export class CreateUserDto {
   @IsOptional()
   @IsEnum(UserRole)
   role?: UserRole;
+
+  @ApiProperty({
+    example: '#3b82f6',
+    description: 'Cor associada ao usuário para personalização.',
+    required: false,
+  })
+  @IsOptional()
+  @IsString()
+  color?: string;
 }
