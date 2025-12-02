@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Put, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
@@ -29,7 +29,7 @@ export class ProductController {
   }
 
   @UseGuards(JwtAuthGuard, AdminGuard)
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() dto: UpdateProductDto) {
     return this.service.update(id, dto);
   }

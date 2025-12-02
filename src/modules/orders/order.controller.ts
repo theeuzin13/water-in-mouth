@@ -6,7 +6,8 @@ import {
   Patch, 
   Post, 
   Delete, 
-  UseGuards 
+  UseGuards, 
+  Put
 } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { OrderService } from './order.service';
@@ -38,7 +39,7 @@ export class OrderController {
   }
 
   @UseGuards(JwtAuthGuard, AdminGuard)
-  @Patch(':id')
+  @Put(':id')
   update(@Param('id') id: string, @Body() dto: UpdateOrderDto) {
     return this.service.update(id, dto);
   }
